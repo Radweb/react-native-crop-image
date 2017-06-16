@@ -46,4 +46,9 @@ await crop(diskPathToImage, {
   top: 50, // Offset from the top of the image
 })
 ```
-  
+
+### `crop(path: string, cropData: CropData): Promise<string>`
+- `path` - The native path to the file (so no leading `file://`, no image store path, etc)
+- `cropData` - Defines the crop area within the coordinate space of the image. `width` and `height` are required, `left` and `top` default to 0
+
+- **Returns** - Path to cropped image, usable as the uri in `Image` component sources. Located in a temp directory on ios
