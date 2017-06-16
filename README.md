@@ -3,7 +3,7 @@
 
 ## Getting started
 
-`$ npm install react-native-crop-image --save`
+`$ yarn add github:Radweb/react-native-crop-image`
 
 ### Mostly automatic installation
 
@@ -37,9 +37,13 @@
 
 ## Usage
 ```javascript
-import RNCropImage from 'react-native-crop-image';
+import crop from 'react-native-crop-image';
 
-// TODO: What to do with the module?
-RNCropImage;
+await crop(diskPathToImage, { 
+  width: 100, // Desired width to crop to
+  height: 100, // Desired height to crop to
+  left: 50, // Offset from the left of the image
+  top: 50, // Offset from the top of the image
+})
 ```
   
