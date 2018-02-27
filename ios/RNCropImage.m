@@ -22,15 +22,15 @@ RCT_EXPORT_METHOD(crop:(NSString *) path
     CGRect cropTarget = CGRectMake(left, top, width, height);
 
     UIImage *targetImage = [UIImage imageWithContentsOfFile:path];
-    
+
     CGImageRef reference = CGImageCreateWithImageInRect([targetImage CGImage], cropTarget);
-    
+
     UIImage *cropped = [UIImage imageWithCGImage:reference];
     NSData *rawImageData = UIImageJPEGRepresentation(cropped, 1.0);
 
     CGImageRelease(reference);
-    
-    
+
+
     NSError *error = nil;
     NSURL *temporaryFileURL = [RNCropImage saveToTmpFolder:rawImageData error:error];
 
@@ -48,9 +48,9 @@ RCT_EXPORT_METHOD(crop:(NSString *) path
     NSString *temporaryFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[temporaryFileName stringByAppendingPathExtension:@"jpg"]];
 
     NSURL *temporaryFileURL = [NSURL fileURLWithPath:temporaryFilePath];
-    
+
     [data writeToURL:temporaryFileURL options:NSDataWritingAtomic error:&error];
-    
+
     if ( error ) {
         //NSLog( @"Error occured while writing image data to a temporary file: %@", error );
     }
