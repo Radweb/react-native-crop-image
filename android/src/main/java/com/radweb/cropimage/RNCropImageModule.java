@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.lang.NullPointerException;
 
 public class RNCropImageModule extends ReactContextBaseJavaModule {
 
@@ -58,6 +59,8 @@ public class RNCropImageModule extends ReactContextBaseJavaModule {
 			try {
 				out.close();
 			} catch (IOException e) {
+				promise.reject("Failed to save", "Failed to close saved file stream", null);
+			} catch (NullPointerException e) {
 				promise.reject("Failed to save", "Failed to close saved file stream", null);
 			}
 		}
