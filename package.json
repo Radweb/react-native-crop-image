@@ -7,7 +7,10 @@
   "keywords": [
     "react-native"
   ],
-  "author": "Louis Capitanchik <contact@louiscap.co>",
+  "author": [
+    "Louis Capitanchik <contact@louiscap.co>",
+    "Wade Urry <wade@radweb.co.uk>"
+  ],
   "license": "Apache-2.0",
   "peerDependencies": {
     "react-native": "^0.41.2"
