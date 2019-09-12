@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "react-native-crop-image"
-  s.version      = "1.2.1"
+  s.version      = "3.0.0"
   s.summary      = "Crop an image. Super Simple Stuff."
   s.description  = <<-DESC
     Crops an image
