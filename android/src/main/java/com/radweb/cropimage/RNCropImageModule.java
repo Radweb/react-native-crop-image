@@ -38,6 +38,12 @@ public class RNCropImageModule extends ReactContextBaseJavaModule {
 	public void crop(String path, ReadableMap options, Promise promise) {
 		BitmapFactory factory = new BitmapFactory();
 		Bitmap image = factory.decodeFile(path);
+
+		if (image == null) {
+			promise.reject("Failed to load", "Failed to load image from path [" + path + "]", new Error("Failed to load image from path [" + path + "]"));
+			return;
+		}
+
 		Bitmap cropped = Bitmap.createBitmap(
 				image,
 				options.getInt("left"),
